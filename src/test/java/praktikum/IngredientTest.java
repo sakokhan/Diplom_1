@@ -2,7 +2,6 @@ package praktikum;
 
 import org.junit.Assert;
 import org.junit.Test;
-
 import static praktikum.IngredientType.FILLING;
 
 public class IngredientTest {

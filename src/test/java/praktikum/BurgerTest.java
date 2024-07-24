@@ -27,7 +27,6 @@ public class BurgerTest {
     public void createBurger() {
         burger = new Burger();
     }
-
     @Test
     public void setBuns() {
         List<Bun> buns = new ArrayList<>();
@@ -47,7 +46,6 @@ public class BurgerTest {
         burger.removeIngredient(0);
         Assert.assertTrue("Ингредиент не удален метоодом removeIngredient", burger.ingredients.isEmpty());
     }
-
     @Test
     public void moveIngredient() {
         burger.addIngredient(new Ingredient(SAUCE, "hot sauce", 100));
@@ -58,7 +56,6 @@ public class BurgerTest {
         burger.moveIngredient(1, 0);
         Assert.assertEquals("Метод moveIngredient не отработал", expected, burger.ingredients);
     }
-
     @Test
     public void getPrice() {
         burger.setBuns(bun);
@@ -68,7 +65,6 @@ public class BurgerTest {
         Mockito.when(ingredient.getPrice()).thenReturn(100F);
         Assert.assertEquals("Цена бургера, полученная методом getPrice отличается от ожидаемой", 400F, burger.getPrice(), 0.1);
     }
-
     @Test
     public void testBunGetNameInGetReceipt() {
         burger.setBuns(bun);
@@ -90,5 +86,4 @@ public class BurgerTest {
         String receipt = burger.getReceipt();
         Assert.assertTrue(receipt.contains("Price:") && receipt.contains("0"));
     }
-
 }
