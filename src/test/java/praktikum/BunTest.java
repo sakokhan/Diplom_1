@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class BunTest {
+
     Bun bun = new Bun("white bun", 200);
     @Test
     public void getName() {

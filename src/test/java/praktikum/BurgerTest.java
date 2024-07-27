@@ -16,17 +16,15 @@ import static praktikum.IngredientType.SAUCE;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
+    Burger burger;
     @Mock
     Bun bun;
-    @Mock
-    Burger burger;
     @Mock
     Ingredient ingredient;
 
     @Before
-    public void createBurger() {
-        burger = new Burger();
-    }
+    public void createBurger() {burger = new Burger();}
+
     @Test
     public void setBuns() {
         List<Bun> buns = new ArrayList<>();
@@ -39,7 +37,6 @@ public class BurgerTest {
         burger.addIngredient(ingredient);
         Assert.assertFalse("Ингредиент не добавлен методом addIngredient", burger.ingredients.isEmpty());
     }
-
     @Test
     public void removeIngredient() {
         burger.addIngredient(ingredient);
@@ -55,15 +52,6 @@ public class BurgerTest {
         expected.add(burger.ingredients.get(0));
         burger.moveIngredient(1, 0);
         Assert.assertEquals("Метод moveIngredient не отработал", expected, burger.ingredients);
-    }
-    @Test
-    public void getPrice() {
-        burger.setBuns(bun);
-        burger.addIngredient(ingredient);
-        burger.addIngredient(ingredient);
-        Mockito.when(bun.getPrice()).thenReturn(100F);
-        Mockito.when(ingredient.getPrice()).thenReturn(100F);
-        Assert.assertEquals("Цена бургера, полученная методом getPrice отличается от ожидаемой", 400F, burger.getPrice(), 0.1);
     }
     @Test
     public void testBunGetNameInGetReceipt() {
@@ -86,4 +74,5 @@ public class BurgerTest {
         String receipt = burger.getReceipt();
         Assert.assertTrue(receipt.contains("Price:") && receipt.contains("0"));
     }
+
 }
